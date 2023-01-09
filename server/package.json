@@ -1,0 +1,16 @@
+{
+  "name": "br.com.softplan.poc.sse.server",
+  "version": "0.0.1",
+  "description": "POC Server-Side Event - Server",
+  "main": "src/server.js",
+  "type": "module",
+  "author": "Michel Fortes",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
