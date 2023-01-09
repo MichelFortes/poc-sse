@@ -1,5 +1,5 @@
 {
-  "name": "br.com.softplan.poc.sse.server",
+  "name": "br.com.michelfortes.poc.sse.server",
   "version": "0.0.1",
   "description": "POC Server-Side Event - Server",
   "main": "src/server.js",
