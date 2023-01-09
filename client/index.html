@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SSE Client</title>
+    <style>
+        body {
+            background-color: rgb(45, 45, 45)
+        } 
+        input {
+            width: 600px;
+            padding: 8px;
+            border: 1px solid rgb(116, 80, 49);
+        }
+        .container {
+            display: block;
+            margin: auto;
+            width: 800px;
+            height: 100%;
+            padding: 20px;
+            background-color: rgb(255, 245, 232);
+        }
+       .event-display {
+        margin: 8px;
+        border: 1px solid rgb(116, 80, 49);
+       }
+    </style>
+    <title>SSE Client</title>
 </head>
 <body>
 
-    <input id="event-id" type="text" />
-    <p>
-        <button>Subscribe</button>
-    </p>
+<div class="container">
 
-    <script type="text/javascript">
-        //<![CDATA[
-        var i = 10;
-        if (i < 5) {
-            // some code
+    <input id="event-url" type="url" required placeholder="Endpoint used to subscribe" value="http://localhost:8080/events/1"/>
+    <p><button onclick="subscribe()">Subscribe</button></p>
+    <div id="event-display"></div>
+
+</div>
+
+<script type="text/javascript">
+
+    function subscribe() {
+        const endpoint = document.getElementById("event-url").value;
+        const evtSource = new EventSource(endpoint);
+        evtSource.onmessage = (event) => {
+            console.log(event);
+            const newElement = document.createElement("div");
+            const eventList = document.getElementById("event-display");
+            newElement.textContent = event.data;
+            eventList.appendChild(newElement);
         }
-        //]]>
-    </script>
+   }
+
+</script>
 
 </body>
 </html>
